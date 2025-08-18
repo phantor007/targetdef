@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Results Analysis - CDS Exam Portal</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fcdsexamp2869back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background font-sans">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-elevation-1 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-heading font-bold text-primary">CDS Exam.in</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-primary transition-colors">Home</a>
+                    <a href="study_materials_library.html" class="text-text-secondary hover:text-primary transition-colors">Study Materials</a>
+                    <a href="practice_test_interface.html" class="text-text-secondary hover:text-primary transition-colors">Practice Tests</a>
+                    <a href="exam_information_hub.html" class="text-text-secondary hover:text-primary transition-colors">Exam Info</a>
+                    <a href="user_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search topics, tests, materials..." class="w-full pl-10 pr-4 py-2 border border-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-300 focus:border-transparent" />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-primary hover:text-primary-600 font-medium transition-colors">Login</button>
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors btn-feedback">Register</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <div class="mb-4">
+                        <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-300" />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <a href="index.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Home</a>
+                    <a href="study_materials_library.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Study Materials</a>
+                    <a href="practice_test_interface.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Practice Tests</a>
+                    <a href="exam_information_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Exam Info</a>
+                    <a href="user_dashboard.html" class="block px-3 py-2 text-text-secondary hover:text-primary">Dashboard</a>
+                    <div class="pt-4 border-t border-border-light">
+                        <button class="block w-full text-left px-3 py-2 text-primary font-medium">Login</button>
+                        <button class="block w-full mt-2 bg-primary text-white px-3 py-2 rounded-lg">Register</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Test Identification Header -->
+    <section class="bg-gradient-to-r from-primary-50 to-secondary-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="mb-6 lg:mb-0">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <a href="user_dashboard.html" class="text-primary hover:text-primary-600 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </a>
+                        <span class="text-text-secondary text-sm">Back to Dashboard</span>
+                    </div>
+                    <h1 class="text-3xl lg:text-4xl font-heading font-bold text-primary mb-2">
+                        CDS Mock Test - Mathematics
+                    </h1>
+                    <div class="flex flex-wrap items-center gap-4 text-sm text-text-secondary">
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2h2a2 2 0 002 2h2a2 2 0 002-2m0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Attempted: 08 Jul 2025
+                        </span>
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Duration: 1h 45m
+                        </span>
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2h2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            100 Questions
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Overall Score Card -->
+                <div class="bg-surface rounded-xl p-6 shadow-elevation-2 min-w-80">
+                    <div class="text-center">
+                        <div class="relative inline-flex items-center justify-center w-24 h-24 mb-4">
+                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#E5E7EB" stroke-width="8" fill="none"/>
+                                <circle cx="50" cy="50" r="40" stroke="#10B981" stroke-width="8" fill="none" stroke-dasharray="251.2" stroke-dashoffset="75.36" class="progress-ring"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-success">72%</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-heading font-semibold text-primary mb-1">Overall Score</h3>
+                        <p class="text-text-secondary text-sm">72 out of 100 marks</p>
+                        <div class="mt-4 flex justify-center space-x-4">
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-700 transition-colors btn-feedback">
+                                Download Report
+                            </button>
+                            <button class="border border-primary text-primary px-4 py-2 rounded-lg text-sm hover:bg-primary-50 transition-colors btn-feedback">
+                                Share Result
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <!-- Desktop Sidebar Navigation -->
+                <div class="hidden lg:block lg:col-span-3">
+                    <div class="bg-surface rounded-xl p-6 shadow-elevation-1 sticky top-24">
+                        <h3 class="text-lg font-heading font-semibold text-primary mb-4">Analysis Sections</h3>
+                        <nav class="space-y-2">
+                            <button class="w-full text-left px-4 py-3 rounded-lg bg-primary-50 text-primary font-medium" onclick="showTab('overview')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                    Overview
+                                </div>
+                            </button>
+                            <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-primary-50 hover:text-primary transition-colors" onclick="showTab('subject-analysis')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                    Subject Analysis
+                                </div>
+                            </button>
+                            <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-primary-50 hover:text-primary transition-colors" onclick="showTab('question-review')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Question Review
+                                </div>
+                            </button>
+                            <button class="w-full text-left px-4 py-3 rounded-lg text-text-secondary hover:bg-primary-50 hover:text-primary transition-colors" onclick="showTab('performance-trends')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                    Performance Trends
+                                </div>
+                            </button>
+                        </nav>
+
+                        <!-- Quick Stats -->
+                        <div class="mt-8 p-4 bg-accent-50 rounded-lg">
+                            <h4 class="font-semibold text-accent-800 mb-3">Quick Stats</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Rank</span>
+                                    <span class="font-medium text-accent-800">1,247</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Percentile</span>
+                                    <span class="font-medium text-accent-800">78.5%</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Accuracy</span>
+                                    <span class="font-medium text-accent-800">72%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Tab Navigation -->
+                <div class="lg:hidden mb-6">
+                    <div class="bg-surface rounded-lg p-1 shadow-elevation-1">
+                        <div class="flex overflow-x-auto">
+                            <button class="flex-shrink-0 px-4 py-2 rounded-md bg-primary text-white text-sm font-medium" onclick="showTab('overview')">
+                                Overview
+                            </button>
+                            <button class="flex-shrink-0 px-4 py-2 rounded-md text-text-secondary text-sm font-medium hover:text-primary" onclick="showTab('subject-analysis')">
+                                Subjects
+                            </button>
+                            <button class="flex-shrink-0 px-4 py-2 rounded-md text-text-secondary text-sm font-medium hover:text-primary" onclick="showTab('question-review')">
+                                Questions
+                            </button>
+                            <button class="flex-shrink-0 px-4 py-2 rounded-md text-text-secondary text-sm font-medium hover:text-primary" onclick="showTab('performance-trends')">
+                                Trends
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="lg:col-span-9">
+                    <!-- Overview Tab -->
+                    <div id="overview-tab" class="tab-content">
+                        <!-- Score Breakdown -->
+                        <div class="bg-surface rounded-xl p-6 shadow-elevation-1 mb-6">
+                            <h3 class="text-xl font-heading font-semibold text-primary mb-6">Score Breakdown</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="text-center">
+                                    <div class="relative inline-flex items-center justify-center w-16 h-16 mb-3">
+                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="35" stroke="#E5E7EB" stroke-width="6" fill="none"/>
+                                            <circle cx="50" cy="50" r="35" stroke="#10B981" stroke-width="6" fill="none" stroke-dasharray="219.8" stroke-dashoffset="65.94" class="progress-ring"/>
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-sm font-bold text-success">72</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm font-medium text-primary">Correct</p>
+                                    <p class="text-xs text-text-secondary">72 questions</p>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="relative inline-flex items-center justify-center w-16 h-16 mb-3">
+                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="35" stroke="#E5E7EB" stroke-width="6" fill="none"/>
+                                            <circle cx="50" cy="50" r="35" stroke="#EF4444" stroke-width="6" fill="none" stroke-dasharray="219.8" stroke-dashoffset="153.86" class="progress-ring"/>
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-sm font-bold text-error">20</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm font-medium text-primary">Incorrect</p>
+                                    <p class="text-xs text-text-secondary">20 questions</p>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="relative inline-flex items-center justify-center w-16 h-16 mb-3">
+                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="35" stroke="#E5E7EB" stroke-width="6" fill="none"/>
+                                            <circle cx="50" cy="50" r="35" stroke="#F59E0B" stroke-width="6" fill="none" stroke-dasharray="219.8" stroke-dashoffset="202.22" class="progress-ring"/>
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-sm font-bold text-accent">8</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm font-medium text-primary">Unattempted</p>
+                                    <p class="text-xs text-text-secondary">8 questions</p>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="relative inline-flex items-center justify-center w-16 h-16 mb-3">
+                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 100 100">
+                                            <circle cx="50" cy="50" r="35" stroke="#E5E7EB" stroke-width="6" fill="none"/>
+                                            <circle cx="50" cy="50" r="35" stroke="#1E3A8A" stroke-width="6" fill="none" stroke-dasharray="219.8" stroke-dashoffset="75.36" class="progress-ring"/>
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-sm font-bold text-primary">72%</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm font-medium text-primary">Accuracy</p>
+                                    <p class="text-xs text-text-secondary">Overall score</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Metrics -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <!-- Time Utilization -->
+                            <div class="bg-surface rounded-xl p-6 shadow-elevation-1">
+                                <h4 class="text-lg font-heading font-semibold text-primary mb-4">Time Utilization</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-text-secondary">Time Spent</span>
+                                            <span class="text-sm font-medium text-primary">1h 45m / 2h</span>
+                                        </div>
+                                        <div class="w-full bg-border-light rounded-full h-2">
+                                            <div class="bg-success h-2 rounded-full" style="width: 87.5%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-text-secondary">Avg. Time per Question</span>
+                                            <span class="text-sm font-medium text-primary">1m 9s</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-text-secondary">Time Efficiency</span>
+                                            <span class="text-sm font-medium text-success">Good</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Percentile Ranking -->
+                            <div class="bg-surface rounded-xl p-6 shadow-elevation-1">
+                                <h4 class="text-lg font-heading font-semibold text-primary mb-4">Percentile Ranking</h4>
+                                <div class="text-center mb-4">
+                                    <div class="text-3xl font-bold text-primary mb-1">78.5%</div>
+                                    <p class="text-sm text-text-secondary">You scored better than 78.5% of test takers</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Your Rank</span>
+                                        <span class="text-sm font-medium text-primary">1,247</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Total Candidates</span>
+                                        <span class="text-sm font-medium text-primary">5,800</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-text-secondary">Topper Score</span>
+                                        <span class="text-sm font-medium text-primary">96%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="bg-surface rounded-xl p-6 shadow-elevation-1">
+                            <h4 class="text-lg font-heading font-semibold text-primary mb-4">Personalized Recommendations</h4>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h5 class="font-medium text-primary">Focus Areas</h5>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-error rounded-full mt-2"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-primary">Algebra</p>
+                                                <p class="text-xs text-text-secondary">45% accuracy - Practice more quadratic equations</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-warning rounded-full mt-2"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-primary">Geometry</p>
+                                                <p class="text-xs text-text-secondary">62% accuracy - Review coordinate geometry</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-2 h-2 bg-error rounded-full mt-2"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-primary">Trigonometry</p>
+                                                <p class="text-xs text-text-secondary">38% accuracy - Focus on basic identities</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <h5 class="font-medium text-primary">Suggested Actions</h5>
+                                    <div class="space-y-3">
+                                        <a href="study_materials_library.html" class="flex items-center space-x-3 p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253"/>
+                                            </svg>
+                                            <div>
+                                                <p class="text-sm font-medium text-primary">Study Algebra Basics</p>
+                                                <p class="text-xs text-text-secondary">Recommended materials available</p>
+                                            </div>
+                                        </a>
+                                        <a href="practice_test_interface.html" class="flex items-center space-x-3 p-3 bg-accent-50 rounded-lg hover:bg-accent-100 transition-colors">
+                                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                            </svg>
+                                            <div>
+                                                <p class="text-sm font-medium text-accent-800">Take Topic-wise Test</p>
+                                                <p class="text-xs text-text-secondary">Practice weak areas</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subject Analysis Tab -->
+                    <div id="subject-analysis-tab" class="tab-content hidden">
+                        <div class="bg-surface rounded-xl p-6 shadow-elevation-1 mb-6">
+                            <h3 class="text-xl font-heading font-semibold text-primary mb-6">Subject-wise Performance</h3>
+                            
+                            <!-- Mathematics Analysis -->
+                            <div class="mb-8">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="text-lg font-semibold text-primary">Mathematics</h4>
+                                    <span class="text-2xl font-bold text-primary">72/100</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                    <div class="bg-success-50 p-4 rounded-lg">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-medium text-success-800">Strengths</span>
+                                            <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 00-1.414 1.414L7.293 9.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <ul class="text-sm text-success-800 space-y-1">
+                                            <li>• Arithmetic (85%)</li>
+                                            <li>• Statistics (78%)</li>
+                                            <li>• Mensuration (82%)</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-warning-50 p-4 rounded-lg">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-medium text-warning-800">Needs Improvement</span>
+                                            <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 00-1.414 1.414L7.293 9.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <ul class="text-sm text-warning-800 space-y-1">
+                                            <li>• Geometry (62%)</li>
+                                            <li>• Probability (58%)</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-error-50 p-4 rounded-lg">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-medium text-error-800">Weak Areas</span>
+                                            <svg class="w-5 h-5 text-error" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 00-1.414 1.414L7.293 9.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <ul class="text-sm text-error-800 space-y-1">
+                                            <li>• Algebra (45%)</li>
+                                            <li>• Trigonometry (38%)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Topic-wise Chart -->
+                                <div class="bg-background p-4 rounded-lg">
+                                    <h5 class="font-medium text-primary mb-4">Topic-wise Performance</h5>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Arithmetic</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-success h-2 rounded-full" style="width: 85%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-success">85%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Mensuration</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-success h-2 rounded-full" style="width: 82%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-success">82%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Statistics</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-success h-2 rounded-full" style="width: 78%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-success">78%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Geometry</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-warning h-2 rounded-full" style="width: 62%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-warning">62%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Probability</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-warning h-2 rounded-full" style="width: 58%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-warning">58%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Algebra</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-error h-2 rounded-full" style="width: 45%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-error">45%</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-text-secondary">Trigonometry</span>
+                                            <div class="flex items-center space-x-2">
+                                                <div class="w-32 bg-border-light rounded-full h-2">
+                                                    <div class="bg-error h-2 rounded-full" style="width: 38%"></div>
+                                                </div>
+                                                <span class="text-sm font-medium text-error">38%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Review Tab -->
+                    <div id="question-review-tab" class="tab-content hidden">
+                        <div class="bg-surface rounded-xl p-6 shadow-elevation-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+                                <h3 class="text-xl font-heading font-semibold text-primary mb-4 sm:mb-0">Question Review</h3>
+                                
+                                <!-- Filter Options -->
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium" onclick="filterQuestions('all')">
+                                        All (100)
+                                    </button>
+                                    <button class="px-4 py-2 bg-success-50 text-success-800 rounded-lg text-sm font-medium hover:bg-success-100" onclick="filterQuestions('correct')">
+                                        Correct (72)
+                                    </button>
+                                    <button class="px-4 py-2 bg-error-50 text-error-800 rounded-lg text-sm font-medium hover:bg-error-100" onclick="filterQuestions('incorrect')">
+                                        Incorrect (20)
+                                    </button>
+                                    <button class="px-4 py-2 bg-warning-50 text-warning-800 rounded-lg text-sm font-medium hover:bg-warning-100" onclick="filterQuestions('unattempted')">
+                                        Unattempted (8)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Question List -->
+                            <div class="space-y-4" id="questions-container">
+                                <!-- Sample Question 1 - Incorrect -->
+                                <div class="question-item incorrect border border-error-200 rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="flex-shrink-0 w-8 h-8 bg-error-100 text-error-800 rounded-full flex items-center justify-center text-sm font-medium">15</span>
+                                            <div>
+                                                <span class="text-sm font-medium text-primary">Algebra</span>
+                                                <div class="flex items-center space-x-2 mt-1">
+                                                    <span class="px-2 py-1 bg-error-100 text-error-800 text-xs rounded">Incorrect</span>
+                                                    <span class="text-xs text-text-secondary">2 marks</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="text-primary hover:text-primary-600" onclick="toggleExplanation(15)">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <p class="text-sm text-text-primary mb-3">
+                                            If x² - 5x + 6 = 0, then the values of x are:
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-error rounded-full flex items-center justify-center text-xs">A</span>
+                                                <span class="text-sm text-text-secondary">x = 1, 6</span>
+                                                <span class="px-2 py-1 bg-error-100 text-error-800 text-xs rounded ml-auto">Your Answer</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-success bg-success text-white rounded-full flex items-center justify-center text-xs">B</span>
+                                                <span class="text-sm text-text-secondary">x = 2, 3</span>
+                                                <span class="px-2 py-1 bg-success-100 text-success-800 text-xs rounded ml-auto">Correct Answer</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">C</span>
+                                                <span class="text-sm text-text-secondary">x = -2, -3</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">D</span>
+                                                <span class="text-sm text-text-secondary">x = 5, 1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="explanation-15" class="explanation hidden mt-4 p-4 bg-primary-50 rounded-lg">
+                                        <h5 class="font-medium text-primary mb-2">Explanation:</h5>
+                                        <p class="text-sm text-text-secondary mb-3">
+                                            To solve x² - 5x + 6 = 0, we can factorize the quadratic equation:
+                                        </p>
+                                        <p class="text-sm text-text-secondary mb-2">
+                                            x² - 5x + 6 = (x - 2)(x - 3) = 0
+                                        </p>
+                                        <p class="text-sm text-text-secondary mb-3">
+                                            Therefore, x = 2 or x = 3
+                                        </p>
+                                        <div class="flex items-center space-x-4">
+                                            <button class="text-primary hover:text-primary-600 text-sm font-medium">
+                                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                                </svg>
+                                                Bookmark
+                                            </button>
+                                            <button class="text-primary hover:text-primary-600 text-sm font-medium">
+                                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                                </svg>
+                                                Share
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sample Question 2 - Correct -->
+                                <div class="question-item correct border border-success-200 rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="flex-shrink-0 w-8 h-8 bg-success-100 text-success-800 rounded-full flex items-center justify-center text-sm font-medium">16</span>
+                                            <div>
+                                                <span class="text-sm font-medium text-primary">Arithmetic</span>
+                                                <div class="flex items-center space-x-2 mt-1">
+                                                    <span class="px-2 py-1 bg-success-100 text-success-800 text-xs rounded">Correct</span>
+                                                    <span class="text-xs text-text-secondary">2 marks</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="text-primary hover:text-primary-600" onclick="toggleExplanation(16)">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <p class="text-sm text-text-primary mb-3">
+                                            What is 15% of 240?
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">A</span>
+                                                <span class="text-sm text-text-secondary">30</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-success bg-success text-white rounded-full flex items-center justify-center text-xs">B</span>
+                                                <span class="text-sm text-text-secondary">36</span>
+                                                <span class="px-2 py-1 bg-success-100 text-success-800 text-xs rounded ml-auto">Your Answer ✓</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">C</span>
+                                                <span class="text-sm text-text-secondary">42</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">D</span>
+                                                <span class="text-sm text-text-secondary">48</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="explanation-16" class="explanation hidden mt-4 p-4 bg-success-50 rounded-lg">
+                                        <h5 class="font-medium text-success-800 mb-2">Explanation:</h5>
+                                        <p class="text-sm text-text-secondary mb-2">
+                                            To find 15% of 240:
+                                        </p>
+                                        <p class="text-sm text-text-secondary mb-2">
+                                            15% × 240 = (15/100) × 240 = 0.15 × 240 = 36
+                                        </p>
+                                        <p class="text-sm text-success-800 font-medium">
+                                            Great job! You got this correct.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Sample Question 3 - Unattempted -->
+                                <div class="question-item unattempted border border-warning-200 rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="flex-shrink-0 w-8 h-8 bg-warning-100 text-warning-800 rounded-full flex items-center justify-center text-sm font-medium">17</span>
+                                            <div>
+                                                <span class="text-sm font-medium text-primary">Geometry</span>
+                                                <div class="flex items-center space-x-2 mt-1">
+                                                    <span class="px-2 py-1 bg-warning-100 text-warning-800 text-xs rounded">Unattempted</span>
+                                                    <span class="text-xs text-text-secondary">2 marks</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="text-primary hover:text-primary-600" onclick="toggleExplanation(17)">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <p class="text-sm text-text-primary mb-3">
+                                            The area of a circle with radius 7 cm is:
+                                        </p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">A</span>
+                                                <span class="text-sm text-text-secondary">44 cm²</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-success bg-success text-white rounded-full flex items-center justify-center text-xs">B</span>
+                                                <span class="text-sm text-text-secondary">154 cm²</span>
+                                                <span class="px-2 py-1 bg-success-100 text-success-800 text-xs rounded ml-auto">Correct Answer</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">C</span>
+                                                <span class="text-sm text-text-secondary">196 cm²</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="w-6 h-6 border-2 border-border-light rounded-full flex items-center justify-center text-xs">D</span>
+                                                <span class="text-sm text-text-secondary">308 cm²</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="explanation-17" class="explanation hidden mt-4 p-4 bg-warning-50 rounded-lg">
+                                        <h5 class="font-medium text-warning-800 mb-2">Explanation:</h5>
+                                        <p class="text-sm text-text-secondary mb-2">
+                                            Area of circle = πr²
+                                        </p>
+                                        <p class="text-sm text-text-secondary mb-2">
+                                            Area = π × 7² = π × 49 = 22/7 × 49 = 154 cm²
+                                        </p>
+                                        <p class="text-sm text-warning-800 font-medium">
+                                            You didn't attempt this question. Make sure to manage your time better.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Load More Button -->
+                            <div class="text-center mt-6">
+                                <button class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors btn-feedback">
+                                    Load More Questions
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Trends Tab -->
+                    <div id="performance-trends-tab" class="tab-content hidden">
+                        <div class="bg-surface rounded-xl p-6 shadow-elevation-1">
+                            <h3 class="text-xl font-heading font-semibold text-primary mb-6">Performance Trends</h3>
+                            
+                            <!-- Historical Performance Chart -->
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold text-primary mb-4">Score Progression</h4>
+                                <div class="bg-background p-6 rounded-lg">
+                                    <div class="flex items-end justify-between h-48 space-x-2">
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-8 bg-primary-300 rounded-t" style="height: 60%"></div>
+                                            <span class="text-xs text-text-secondary mt-2">Test 1</span>
+                                            <span class="text-xs font-medium text-primary">58%</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-8 bg-primary-400 rounded-t" style="height: 70%"></div>
+                                            <span class="text-xs text-text-secondary mt-2">Test 2</span>
+                                            <span class="text-xs font-medium text-primary">64%</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-8 bg-primary-500 rounded-t" style="height: 75%"></div>
+                                            <span class="text-xs text-text-secondary mt-2">Test 3</span>
+                                            <span class="text-xs font-medium text-primary">68%</span>
+                                        </div>
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-8 bg-primary rounded-t" style="height: 85%"></div>
+                                            <span class="text-xs text-text-secondary mt-2">Test 4</span>
+                                            <span class="text-xs font-medium text-primary">72%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comparative Analysis -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-primary mb-4">Improvement Areas</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-success-800">Arithmetic</p>
+                                                <p class="text-sm text-success-700">+15% improvement</p>
+                                            </div>
+                                            <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-success-800">Statistics</p>
+                                                <p class="text-sm text-success-700">+12% improvement</p>
+                                            </div>
+                                            <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex items-center justify-between p-3 bg-warning-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-warning-800">Geometry</p>
+                                                <p class="text-sm text-warning-700">+3% improvement</p>
+                                            </div>
+                                            <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-lg font-semibold text-primary mb-4">Time Management</h4>
+                                    <div class="space-y-4">
+                                        <div class="p-3 bg-primary-50 rounded-lg">
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-sm font-medium text-primary">Average Time per Question</span>
+                                                <span class="text-sm font-bold text-primary">1m 9s</span>
+                                            </div>
+                                            <div class="w-full bg-border-light rounded-full h-2">
+                                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                            </div>
+                                            <p class="text-xs text-text-secondary mt-1">Optimal range: 1-1.5 minutes</p>
+                                        </div>
+                                        <div class="p-3 bg-accent-50 rounded-lg">
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-sm font-medium text-accent-800">Time Utilization</span>
+                                                <span class="text-sm font-bold text-accent-800">87.5%</span>
+                                            </div>
+                                            <div class="w-full bg-border-light rounded-full h-2">
+                                                <div class="bg-accent h-2 rounded-full" style="width: 87.5%"></div>
+                                            </div>
+                                            <p class="text-xs text-text-secondary mt-1">Good time management</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-heading font-bold">CDS Exam.in</span>
+                    </div>
+                    <p class="text-primary-200 text-sm mb-4">
+                        Your trusted partner for CDS exam preparation with comprehensive study materials and practice tests.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.36 1.56-2.23 0-1.13-.92-2.065-2.063-2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C24 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.36 1.56-2.23 0-1.13-.92-2.065-2.063-2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C24 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.36 1.56-2.23 0-1.13-.92-2.065-2.063-2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C24 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.36 1.56-2.23 0-1.13-.92-2.065-2.063-2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C24 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-primary-200 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="study_materials_library.html" class="text-primary-200 hover:text-white transition-colors text-sm">Study Materials</a></li>
+                        <li><a href="practice_test_interface.html" class="text-primary-200 hover:text-white transition-colors text-sm">Practice Tests</a></li>
+                        <li><a href="exam_information_hub.html" class="text-primary-200 hover:text-white transition-colors text-sm">Exam Information</a></li>
+                        <li><a href="user_dashboard.html" class="text-primary-200 hover:text-white transition-colors text-sm">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="exam_information_hub.html" class="text-primary-200 hover:text-white transition-colors text-sm">Previous Papers</a></li>
+                        <li><a href="test_results_analysis.html" class="text-primary-200 hover:text-white transition-colors text-sm">Result Analysis</a></li>
+                        <li><a href="exam_information_hub.html" class="text-primary-200 hover:text-white transition-colors text-sm">Cut-off Marks</a></li>
+                        <li><a href="exam_information_hub.html" class="text-primary-200 hover:text-white transition-colors text-sm">Syllabus</a></li>
+                        <li><a href="exam_information_hub.html" class="text-primary-200 hover:text-white transition-colors text-sm">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Contact Us</h3>
+                    <div class="space-y-2 text-sm text-primary-200">
+                        <p class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 012.22 0L21 8M5 19h14a2 2 0 012 2V7a2 2 0 01-2 2H5a2 2 0 01-2 2v10a2 2 0 012 2z"/>
+                            </svg>
+                            support@cdsportal.com
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            +91 98765 43210
+                        </p>
+                        <p class="flex items-start">
+                            <svg class="w-4 h-4 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1 1 0 002.827 0l4.244-4.243a8 8 0 11-11.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            New Delhi, India
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 CDS Portal. All Rights Reserved. | Privacy Policy | Terms of Service
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+            
+            // Show selected tab
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+            }
+            
+            // Update button states for desktop
+            const desktopButtons = document.querySelectorAll('nav button');
+            desktopButtons.forEach(btn => {
+                btn.classList.remove('bg-primary-50', 'text-primary');
+                btn.classList.add('text-text-secondary');
+            });
+            
+            // Update button states for mobile
+            const mobileButtons = document.querySelectorAll('.lg\\:hidden button');
+            mobileButtons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('text-text-secondary');
+            });
+            
+            // Set active button - check if event exists and has target
+            if (typeof event !== 'undefined' && event && event.target) {
+                event.target.classList.remove('text-text-secondary');
+                if (window.innerWidth >= 1024) {
+                    event.target.classList.add('bg-primary-50', 'text-primary');
+                } else {
+                    event.target.classList.add('bg-primary', 'text-white');
+                }
+            } else {
+                // Fallback: find and activate the correct button based on tabName
+                const activeButton = document.querySelector(`button[onclick="showTab('${tabName}')"]`);
+                if (activeButton) {
+                    activeButton.classList.remove('text-text-secondary');
+                    if (window.innerWidth >= 1024) {
+                        activeButton.classList.add('bg-primary-50', 'text-primary');
+                    } else {
+                        activeButton.classList.add('bg-primary', 'text-white');
+                    }
+                }
+            }
+        }
+
+        // Question Filtering
+        function filterQuestions(filter) {
+            const questions = document.querySelectorAll('.question-item');
+            
+            questions.forEach(question => {
+                if (filter === 'all') {
+                    question.style.display = 'block';
+                } else {
+                    if (question.classList.contains(filter)) {
+                        question.style.display = 'block';
+                    } else {
+                        question.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Update filter button states
+            const filterButtons = document.querySelectorAll('button[onclick^="filterQuestions"]');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'bg-success-50', 'text-success-800', 'bg-error-50', 'text-error-800', 'bg-warning-50', 'text-warning-800');
+            });
+            
+            // Set active filter button - check if event exists and has target
+            if (typeof event !== 'undefined' && event && event.target) {
+                event.target.classList.add('bg-primary', 'text-white');
+            }
+        }
+
+        // Toggle Explanation
+        function toggleExplanation(questionId) {
+            const explanation = document.getElementById('explanation-' + questionId);
+            if (explanation) {
+                explanation.classList.toggle('hidden');
+                
+                // Rotate arrow - check if event exists and has target
+                if (typeof event !== 'undefined' && event && event.target) {
+                    const arrow = event.target.querySelector('svg') || event.target.closest('button').querySelector('svg');
+                    if (arrow) {
+                        arrow.style.transform = explanation.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                }
+            }
+        }
+
+        // Initialize first tab
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('overview');
+        });
+    </script>
+<script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
+</body>
+</html>
